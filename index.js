@@ -10,6 +10,7 @@ var config = {
 
 var topics = [
     `iot/${config.username}/messages`,
+    `iot/${config.username}/stocks/#`,
 ]
 
 var client  = mqtt.connect(host, config)
@@ -26,7 +27,7 @@ client.on('message', (topic, message) => {
     console.log("Received message on Topic: ", topic,"\nMessage:", message.toString())
 })
 
-setInterval(() => {
-  client.publish(`iot/${config.username}/heartbeat`, 'ping')
-  console.log("send ping")
-}, 1000)
+// setInterval(() => {
+//   client.publish(`iot/${config.username}/heartbeat`, 'ping')
+//   console.log("send ping")
+// }, 1000)
